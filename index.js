@@ -7,7 +7,6 @@ const routes = require("./src/routes/mainRoutes");
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.raw());
 app.use(cors({ origin: "*" }));
 app.use(routes);
 
