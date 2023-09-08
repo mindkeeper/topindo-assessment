@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       age: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           isInt: { msg: "age type must be integer" },
