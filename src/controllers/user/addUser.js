@@ -12,12 +12,12 @@ const addUserHandler = async (req, res, next) => {
       })),
       { transaction: t }
     );
-    return res
-      .status(201)
-      .json({
-        message: "success",
-        data: { user: { ...user.dataValues, hobbies } },
-      });
+
+    await t.commit();
+    return res.status(201).json({
+      message: "success",
+      data: { user: { ...user.dataValues, hobbies } },
+    });
   } catch (error) {
     await t.rollback();
     return next(error);
