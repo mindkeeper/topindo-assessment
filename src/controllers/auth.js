@@ -1,5 +1,4 @@
 const asyncErrorHandler = require("./asyncErrorHandler");
-const authRepo = require("../repository/auth");
 const bcrypt = require("bcrypt");
 const CustomError = require("../utils/CustomError");
 const jwtHelper = require("../utils/jwtHelper");
@@ -10,7 +9,6 @@ module.exports = {
       password: "test123",
     };
     const { username, password } = req.body;
-    console.log(req.body);
     if (!username) return next(new CustomError("username is required", 400));
 
     if (!password) return next(new CustomError("password is required", 400));
