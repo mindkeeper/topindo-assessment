@@ -6,6 +6,8 @@ const globalError = require("./src/controllers/globalError");
 const routes = require("./src/routes/mainRoutes");
 const app = express();
 
+app.use(express.json());
+app.use(express.raw());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: "*" }));
 app.use(routes);
